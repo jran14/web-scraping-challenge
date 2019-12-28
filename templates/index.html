@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link type="text/css" rel="stylesheet" href='stylesheet.css'> <link rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <title>Mars Web Scrapping</title>
+</head>
+<body style="background:black;">
+    <div class="container-fluid">
+    <div class="jumbotron text-center jumbotron-fluid">
+        <div class="container">
+          <h1 class="display-4">MISSION TO MARS</h1>
+          <p class="lead">Summary of web scraping from NASA, JPL, Twitter, Mars Facts, and USGS.</p>
+          <a type="button" class="btn btn-outline-dark" href="/scrape">Scrape New Data</a>
+        </div>
+    </div>
+
+    <div class="row1" style="background:rgb(155, 139, 139);">
+        <div class="col-xs-2 col-md-2"></div>
+        <div class="col-xs-8 col-md-8 ">
+            <div class="Latest News">
+                    <h2 class="Latest News Header">Latest Mars News</h2>
+                    <h3>{{mars_data.news_title}}</h3>
+                    <p>{{mars_data.news_p}}</p>
+                    <hr>
+            </div>
+        </div>
+        <div class="col-xs-2 col-md-2"></div>
+    </div>
+
+
+    <div class="row" style="background:white;">
+        <div class="col-xs-4 col-md-4 ">
+            <div class="Featured Image">
+                <h2 class="Latest News Header">Featured Mars Image</h2>
+                <img src= {{mars_data.featured_image_url}} alt="Featured Image" class="img-responsive">
+            </div>
+
+        </div>
+        <div class="col-xs-8 col-md-8">
+            <h2 class="Tweet">Current Weather</h2>
+            <p>{{mars_data.latest_tweet}}</p>
+            <hr>
+            <h2 class="Mars Table">Mars Facts</h2>
+            {{mars_data.table_parse}}
+        </div>
+    
+    </div>
+    <div class="row" style="background:rgb(155, 139, 139);">
+        <div class="col-xs-12 col-md-12">
+            <h2 class="Hemispheres text-center">Mars Hemispheres</h2>
+
+             <!-- split into first row -->
+             <div class="row Hemisphere Panel text-center">
+                <div class="Panel">
+                    <a href="{{mars_data.hemisphere_image_urls[0].img_url}}"><img src={{mars_data.hemisphere_image_urls[0].img_url}} class="img-fluid" alt="Hemi1"></a>
+                    <h3>{{mars_data.hemisphere_image_urls[0].title}}</h3>
+                </div>
+                <div class="Panel">
+                    <a href="{{mars_data.hemisphere_image_urls[1].img_url}}"><img src={{mars_data.hemisphere_image_urls[1].img_url}} class="img-fluid" alt="Hemi2"></a>
+                    <h3>{{mars_data.hemisphere_image_urls[1].title}}</h3>
+                </div>
+            </div>
+            <!-- split into second row -->
+            <div class="row Hemisphere Panel text-center">
+                <div class="Panel">
+                    <a href="{{mars_data.hemisphere_image_urls[2].img_url}}"><img src={{mars_data.hemisphere_image_urls[2].img_url}} class="img-fluid" alt="Hemi3"></a>
+                    <h3>{{mars_data.hemisphere_image_urls[2].title}}</h3>
+                </div>
+                <div class="Panel">
+                    <a href="{{mars_data.hemisphere_image_urls[3].img_url}}"><img src={{mars_data.hemisphere_image_urls[3].img_url}} class="img-fluid" alt="Hemi4"></a>
+                    <h3>{{mars_data.hemisphere_image_urls[3].title}}</h3>
+                </div>
+            </div>
+            <style>
+                .img-fluid {
+                    max-width: 100%;
+                    height: auto;
+                }
+            </style>
+        </div>
+
+    </div>
+    </div>
+<!--             
+            <style>
+                .jumbotron text-center jumbotron-fluid {
+                    width: auto;
+                }
+            </style> -->
+        </div>    
+</body>
+</html>
