@@ -40,43 +40,48 @@
                 <h2 class="Latest News Header">Featured Mars Image</h2>
                 <img src= {{mars_data.featured_image_url}} alt="Featured Image" class="img-responsive">
             </div>
-
         </div>
+    </div> 
+    <div class="row" style="background:white;">
+    
         <div class="col-xs-8 col-md-8">
             <h2 class="Tweet">Current Weather</h2>
             <p>{{mars_data.latest_tweet}}</p>
             <hr>
             <h2 class="Mars Table">Mars Facts</h2>
-            {{mars_data.table_parse}}
+            <tr>{{mars_data.mars_facts}}</tr>
         </div>
     
     </div>
+    <!-- hemispheres -->
+
+
     <div class="row" style="background:rgb(155, 139, 139);">
         <div class="col-xs-12 col-md-12">
             <h2 class="Hemispheres text-center">Mars Hemispheres</h2>
-
-             <!-- split into first row -->
-             <div class="row Hemisphere Panel text-center">
-                <div class="Panel">
-                    <a href="{{mars_data.hemisphere_image_urls[0].img_url}}"><img src={{mars_data.hemisphere_image_urls[0].img_url}} class="img-fluid" alt="Hemi1"></a>
-                    <h3>{{mars_data.hemisphere_image_urls[0].title}}</h3>
+            {% if mars_data %}
+                <div class="row Hemisphere Panel text-center">
+                    <div class="Panel">
+                        <img src='{{mars_data['hemisphere_images'][0]['url']}}''>
+                            <h3>{{mars_data['hemisphere_images'][0]['Title']}}</h3>
+                    </div>
+                    <div class="Panel">
+                        <img src='{{mars_data['hemisphere_images'][1]['url']}}'>
+                            <h3>mars_data['hemisphere_images'][1]['Title']}</h3>
+                    </div>
                 </div>
-                <div class="Panel">
-                    <a href="{{mars_data.hemisphere_image_urls[1].img_url}}"><img src={{mars_data.hemisphere_image_urls[1].img_url}} class="img-fluid" alt="Hemi2"></a>
-                    <h3>{{mars_data.hemisphere_image_urls[1].title}}</h3>
+        <!-- split into second row   -->
+                <div class="row Hemisphere Panel text-center">
+                    <div class="Panel">
+                        <img src='{{mars_data['hemisphere_images'][2]['url']}}'>
+                            <h3>mars_data['hemisphere_images'][2]['Title']}</h3>
+                    </div>
+                    <div class="Panel">
+                        <img src='{{mars_data['hemisphere_images'][3]['url']}}'>
+                            <h3>mars_data['hemisphere_images'][3]['Title']}</h3>
+                    </div> 
                 </div>
-            </div>
-            <!-- split into second row -->
-            <div class="row Hemisphere Panel text-center">
-                <div class="Panel">
-                    <a href="{{mars_data.hemisphere_image_urls[2].img_url}}"><img src={{mars_data.hemisphere_image_urls[2].img_url}} class="img-fluid" alt="Hemi3"></a>
-                    <h3>{{mars_data.hemisphere_image_urls[2].title}}</h3>
-                </div>
-                <div class="Panel">
-                    <a href="{{mars_data.hemisphere_image_urls[3].img_url}}"><img src={{mars_data.hemisphere_image_urls[3].img_url}} class="img-fluid" alt="Hemi4"></a>
-                    <h3>{{mars_data.hemisphere_image_urls[3].title}}</h3>
-                </div>
-            </div>
+            {% endif %}
             <style>
                 .img-fluid {
                     max-width: 100%;
@@ -87,12 +92,12 @@
 
     </div>
     </div>
-<!--             
+            
             <style>
                 .jumbotron text-center jumbotron-fluid {
                     width: auto;
                 }
-            </style> -->
+            </style>
         </div>    
 </body>
 </html>
